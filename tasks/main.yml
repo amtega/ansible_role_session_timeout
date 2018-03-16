@@ -1,2 +1,9 @@
 ---
 # Role tasks
+- name: configure file for console timeout setting
+  template:
+    src: "tmout_sh.j2"
+    dest: "{{ path_to_configuration_file }}"
+    owner: root
+    group: root
+    mode: "u=rw,g=r,o=r"

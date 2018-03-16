@@ -1,2 +1,38 @@
 ---
-# Tasks for testing role
+# Tasks for testing role amtega.session_timeout
+- name: run idempotence test
+  hosts: localhost
+  roles:
+    - role: amtega.docker_presets
+    - role: amtega.docker_sandbox
+      docker_sandbox_state: started
+
+- name: test session timeout configuration role
+  hosts: all
+  become_method: sudo
+  become_user: root
+  become: yes
+  roles:
+    - amtega.session_timeout
+  vars:
+    console_timeout_to: 6000
+
+  tasks:
+      - name: read config file
+        # become: yes
+        shell: "cat {{ path_to_configuration_file }}"
+        register: read_config_file_result
+
+      - name: verify options to be present at config file
+        assert:
+          that:
+            - read_config_file_result.stdout.find( "TMOUT={{ console_timeout_to }}" ) != -1
+
+        tags:
+          - idempotence
+
+- name: cleanup docker docker sandbox
+  hosts: localhost
+  roles:
+  - role: amtega.docker_sandbox
+    docker_sandbox_state: absent
