@@ -1,5 +1,6 @@
 ---
 # Role default lower priority variables
 
-# number of second to set console timeout
-console_timeout_to: 600
+# Time in seconds to for console timeout
+
+session_timeout_time: 600

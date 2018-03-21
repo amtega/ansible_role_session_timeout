@@ -1,9 +1,10 @@
 ---
 # Role tasks
-- name: configure file for console timeout setting
+
+- name: create script to handle session timeout
   template:
-    src: "tmout_sh.j2"
-    dest: "{{ path_to_configuration_file }}"
+    src: session_timeout.sh.j2
+    dest: "{{ session_timeout_script_path }}"
     owner: root
     group: root
     mode: "u=rw,g=r,o=r"

@@ -1,10 +1,10 @@
 # role_name
 
-This is an [Ansible](http://www.ansible.com) role to setup a session timeout on the console
+This is an [Ansible](http://www.ansible.com) role to setup a console session timeout
 
 ## Requirements
 
-- Ansible >= 2.4
+[Ansible 2.4+](http://docs.ansible.com/ansible/latest/intro_installation.html)
 
 ## Role Variables
 
@@ -18,21 +18,20 @@ None.
 
 ```yaml
 ---
-
   - hosts: servers
-    become: true
     roles:
-    - role: amtega.session_timeout
+      - role: amtega.session_timeout
 ```
 
 ## Testing
 
-For test based on docker containers. You can run the tests with the following commands:
+Tests are based on docker containers. You can setup docker engine quickly using the playbook `files/setup.yml` available in the role [amtega.docker_engine](https://galaxy.ansible.com/amtega/docker_engine).
+
+Once you have docker, you can run the tests with the following commands:
 
 ```shell
 $ cd amtega.grub/tests
 $ ansible-playbook main.yml
-
 
 ## License
 
