@@ -1,7 +1,7 @@
 {{ ansible_managed | comment }}
 
 # Make interactive sessions expire at a given number of seconds
-TMOUT={{ console_timeout_to }}
+TMOUT={{ session_timeout_time }}
 # Only works in bash
 [ $SHELL = "/bin/bash" ] && readonly TMOUT
 export TMOUT

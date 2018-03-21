@@ -1,3 +1,4 @@
 ---
 # Role variables
-path_to_configuration_file: "/etc/profile.d/tmout.sh"
+
+session_timeout_script_path: "/etc/profile.d/session_timeout.sh"
