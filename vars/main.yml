@@ -1,2 +1,3 @@
 ---
 # Role variables
+path_to_configuration_file: "/etc/profile.d/tmout.sh"
