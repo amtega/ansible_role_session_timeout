@@ -24,7 +24,7 @@
         assert:
           that: >-
             read_script_file_result.stdout
-            | search("TMOUT={{ session_timeout_time }}")
+              is search("TMOUT={{ session_timeout_time }}")
   tags:
     - idempotence
 
