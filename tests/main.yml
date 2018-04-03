@@ -7,6 +7,8 @@
     - role: amtega.docker_presets
     - role: amtega.docker_sandbox
       docker_sandbox_state: started
+  tags:
+    - sandbox
 
 - name: test session_timeout role
   hosts: docker_sandbox_containers
@@ -33,3 +35,5 @@
   roles:
   - role: amtega.docker_sandbox
     docker_sandbox_state: absent
+  tags:
+    - sandbox
