@@ -1,6 +1,7 @@
 ---
 
 galaxy_info:
+  role_name: session_timeout
   author: Carlos Chedas Fernández
   description: Setup a console session timeout
   company: AMTEGA - Xunta de Galicia
