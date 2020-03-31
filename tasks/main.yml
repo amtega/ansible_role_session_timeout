@@ -1,7 +1,7 @@
 ---
 # Role tasks
 
-- name: create script to handle session timeout
+- name: Create script to handle session timeout
   template:
     src: session_timeout.sh.j2
     dest: "{{ session_timeout_script_path }}"

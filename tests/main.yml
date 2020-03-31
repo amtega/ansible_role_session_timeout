@@ -16,19 +16,19 @@
   tags:
     - sandbox
 
-- name: test session_timeout role
+- name: Test session_timeout role
   hosts: docker_sandbox_containers
   roles:
     - amtega.session_timeout
   vars:
     session_timeout_time: 6000
   tasks:
-      - name: read script file
+      - name: Read script file
         shell: "cat {{ session_timeout_script_path }}"
         changed_when: false
         register: read_script_file_result
 
-      - name: verify options in script file
+      - name: Verify options in script file
         assert:
           that: >-
             read_script_file_result.stdout
