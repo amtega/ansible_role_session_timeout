@@ -22,7 +22,7 @@ Tests are based on [molecule with docker containers](https://molecule.readthedoc
 ```shell
 cd amtega.session_timeout
 
-molecule test
+molecule test --all
 ```
 
 ## License
