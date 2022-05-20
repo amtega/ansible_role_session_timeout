@@ -8,3 +8,10 @@
     owner: root
     group: root
     mode: "u=rw,g=r,o=r"
+  when: session_timeout_time | int > 0
+
+- name: Remove script to handle session timeout
+  file:
+    path: "{{ session_timeout_script_path }}"
+    state: absent
+  when: session_timeout_time | int == 0
