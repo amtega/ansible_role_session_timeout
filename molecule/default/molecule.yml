@@ -9,7 +9,7 @@ dependency:
     role-file: "${MOLECULE_SCENARIO_DIRECTORY}/requirements.yml"
     requirements-file: "${MOLECULE_SCENARIO_DIRECTORY}/requirements.yml"
 driver:
-  name: docker
+  name: podman
 lint: "${MOLECULE_SCENARIO_DIRECTORY}/linters.sh"
 platforms:
   - name: "centos6-${INSTANCE_UUID:-1}"
@@ -38,7 +38,7 @@ platforms:
       - molecule_hosts_fedora
       - molecule_hosts_fedora_34
   - name: "fedora35-${INSTANCE_UUID:-1}"
-    image: quay.io/fedora/fedora:35    
+    image: quay.io/fedora/fedora:35
     groups:
       - molecule_hosts
       - molecule_hosts_fedora
