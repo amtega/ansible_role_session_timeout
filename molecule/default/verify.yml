@@ -5,12 +5,12 @@
   gather_facts: no
   tasks:
     - name: Read script file
-      command: "cat {{ session_timeout_script_path }}"
+      ansible.builtin.command: "cat {{ session_timeout_script_path }}"
       changed_when: no
       register: read_script_file_result
 
     - name: Verify options in script file
-      assert:
+      ansible.builtin.assert:
         that: >-
           read_script_file_result.stdout
             is search("TMOUT={{ session_timeout_time }}")
