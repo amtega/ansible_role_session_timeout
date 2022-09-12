@@ -1,8 +1,7 @@
 ---
-# Role tasks
 
 - name: Create script to handle session timeout
-  template:
+  ansible.builtin.template:
     src: session_timeout.sh.j2
     dest: "{{ session_timeout_script_path }}"
     owner: root
@@ -11,7 +10,7 @@
   when: session_timeout_time | int > 0
 
 - name: Remove script to handle session timeout
-  file:
+  ansible.builtin.file:
     path: "{{ session_timeout_script_path }}"
     state: absent
   when: session_timeout_time | int == 0
